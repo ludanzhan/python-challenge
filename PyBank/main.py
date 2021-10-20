@@ -1,7 +1,9 @@
 import os
 import csv
+import sys
 
 csv_path = os.path.join('resources','budget_data.csv')
+sys.stdout = open('Analysis/PyBank.txt','w')
 
 with open(csv_path,'r') as budget_csv:
 
@@ -46,6 +48,6 @@ with open(csv_path,'r') as budget_csv:
           + "Greaatest Increase: " + increase+ " ($" + str(greatest_increase) +")"+ "\n"
           + "Greatest Decrease: " +decrease+ " ($" + str(greatest_decrease)+ ")" +"\n\n")
       
-
+sys.stdout.close()
         
        
