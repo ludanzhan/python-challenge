@@ -38,13 +38,13 @@ with open(csv_path,'r') as budget_csv:
         change = (profit + loss)/count
 
 
-    print("Finiancial Analysis\n" 
+    print("\n\nFiniancial Analysis\n" 
           + "------------------------------\n"
           + "Total Month: " + str(count) + "\n" 
           + "Total: $"+ str(total) + "\n"
           + "Average Change: $" + str(change) + "\n"
           + "Greaatest Increase: " + increase+ " ($" + str(greatest_increase) +")"+ "\n"
-          + "Greatest Decrease: " +decrease+ " ($" + str(greatest_decrease)+ ")" )
+          + "Greatest Decrease: " +decrease+ " ($" + str(greatest_decrease)+ ")" +"\n\n")
       
 
         
