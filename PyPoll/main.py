@@ -1,9 +1,9 @@
 import os
 import csv
-# import sys
+import sys
 
 csv_path = os.path.join('resources','election_data.csv')
-# sys.stdout = open('Analysis/PyPoll.txt','w')
+sys.stdout = open('Analysis/PyPoll.txt','w')
 with open(csv_path,'r') as election_csv:
     election_reader = csv.reader(election_csv, delimiter = ',')
     header = next(election_reader)
@@ -27,10 +27,10 @@ with open(csv_path,'r') as election_csv:
 
         count += 1
 
-        percent_khan = float(khan / count)*100
-        percent_coreey = float(correy / count)*100
-        percent_otooley = float(otooley / count)*100
-        percent_li = float(li / count)*100
+        percent_khan = float(khan) / float(count)*100
+        percent_coreey = float(correy) / float(count)*100
+        percent_otooley = float(otooley) / float(count)*100
+        percent_li = float(li) / float(count)*100
 
     print("Election Results\n" 
           + "---------------------------\n"
@@ -40,4 +40,8 @@ with open(csv_path,'r') as election_csv:
           + "Coreey: " + str(percent_coreey) + "% (" + str(correy) + ")\n"
           + "Li: " + str(percent_li) + "% (" + str(li) + ")\n"
           + "O'Tooley: " + str(percent_otooley) + "% (" + str(otooley) + ")\n"
-          + "-----------------------------\n")
+          + "-----------------------------\n"
+          + "Winner: Khan\n"
+          + "-----------------------------")
+    
+    sys.stdout.close()
