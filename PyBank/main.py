@@ -15,13 +15,19 @@ with open(csv_path,'r') as budget_csv:
 
     for row in budget_reader:
         num = int(row[1])
-        
+
         if num > 0:
             if num > greatest_increase:
                 greatest_increase = num
         elif num<0:
             if num < greatest_decrease:
                 greatest_decrease = num
+
+        if int(row[1]) == greatest_increase:
+            increase = str(row[0])
+        elif int(row[1]) == greatest_decrease:
+            decrease = str(row[0])
+
 
         total += int(row[1])
         count +=1
@@ -31,8 +37,8 @@ with open(csv_path,'r') as budget_csv:
           + "------------------------------\n"
           + "Total Month: " + str(count) + "\n" 
           + "Total: $"+ str(total) + "\n"
-          + "Greaatest Increase: " + "($" + str(greatest_increase) +")"+ "\n"
-          + "Greatest Decrease: " + "($" + str(greatest_decrease)+ ")" )
+          + "Greaatest Increase: " + increase+ " ($" + str(greatest_increase) +")"+ "\n"
+          + "Greatest Decrease: " +decrease+ " ($" + str(greatest_decrease)+ ")" )
 
         
        
